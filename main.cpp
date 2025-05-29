@@ -1,7 +1,6 @@
 #include<iostream>
 #include "first_app.hpp"
 #include <cstdlib>
-#include <stdexcept>
 
 using namespace std;
 int main() {
@@ -13,5 +12,5 @@ int main() {
         std::cerr << "Exception: " << e.what() << std::endl;
         return EXIT_FAILURE;
     }
-    return EXIT_SUCCESS; 
+    return EXIT_SUCCESS;
 }
