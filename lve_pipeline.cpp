@@ -81,6 +81,16 @@ namespace lve {
       viewportStateInfo.scissorCount = 1;
       viewportStateInfo.pScissors = &configInfo.scissor;
 
+
+      VkPipelineMultisampleStateCreateInfo multisampling{};
+      multisampling.sType = VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
+      multisampling.sampleShadingEnable = VK_FALSE;
+      multisampling.rasterizationSamples = VK_SAMPLE_COUNT_1_BIT;  // must NOT be 0
+      multisampling.minSampleShading = 1.0f;  // Optional
+      multisampling.pSampleMask = nullptr;
+      multisampling.alphaToCoverageEnable = VK_FALSE;
+      multisampling.alphaToOneEnable = VK_FALSE;
+
       VkGraphicsPipelineCreateInfo pipelineInfo{};
       pipelineInfo.sType = VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
       pipelineInfo.stageCount = 2;
@@ -89,7 +99,7 @@ namespace lve {
       pipelineInfo.pInputAssemblyState = &configInfo.inputAssemblyInfo;
       pipelineInfo.pViewportState = &viewportStateInfo;
       pipelineInfo.pRasterizationState = &configInfo.rasterizationStateInfo;
-      pipelineInfo.pMultisampleState = &configInfo.multisampleStateInfo;
+      pipelineInfo.pMultisampleState = &multisampling;
       pipelineInfo.pColorBlendState = &configInfo.colorBlendStateInfo;
       pipelineInfo.pDepthStencilState = &configInfo.depthStencilStateInfo;
       pipelineInfo.pDynamicState = nullptr;
@@ -100,6 +110,7 @@ namespace lve {
 
       pipelineInfo.basePipelineIndex = -1;
       pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
+
 
 
         if (vkCreateGraphicsPipelines(lveDevice.device(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &graphicsPipeline) != VK_SUCCESS)

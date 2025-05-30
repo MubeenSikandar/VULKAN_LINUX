@@ -1,16 +1,23 @@
-CXX = g++
+CXX = clang++
 CFLAGS = -std=c++17 -O2
-LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
+
+# Manually specify Vulkan SDK path
+VULKAN_SDK_PATH = /Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS
+INCLUDES = -I/opt/homebrew/include -I$(VULKAN_SDK_PATH)/include
+LDFLAGS = -L/opt/homebrew/lib -L$(VULKAN_SDK_PATH)/lib -lglfw -lvulkan
+
 SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
-VULKAN: $(SOURCES)
-	$(CXX) $(CFLAGS) -o VULKAN $(SOURCES) $(LDFLAGS)
+TARGET = VULKAN
+
+$(TARGET): $(SOURCES)
+	$(CXX) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(SOURCES) $(LDFLAGS)
 
 .PHONY: test clean
 
-test: VULKAN
-	./VULKAN
+test: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -f VULKAN *.o
+	rm -f $(TARGET) *.o
