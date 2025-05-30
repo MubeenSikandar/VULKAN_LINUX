@@ -1,5 +1,18 @@
+# Build and compile artifacts
+VULKAN
+VulkanTest
+*.o
+*.out
+*.log
+
+# Compilation tools
 Makefile
 compile.sh
 compile_commands.json
-.cache
-VULKAN
+
+# Cache files
+.cache/
+
+# Optional IDE and system-specific files
+.vscode/
+*.DS_Store
