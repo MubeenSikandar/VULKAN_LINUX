@@ -10,7 +10,6 @@ namespace lve {
     struct PipelineConfigInfo{
         VkViewport viewport;
         VkRect2D scissor;
-        VkPipelineViewportStateCreateInfo viewportStateInfo;
         VkPipelineInputAssemblyStateCreateInfo inputAssemblyInfo;
         VkPipelineRasterizationStateCreateInfo rasterizationStateInfo;
         VkPipelineMultisampleStateCreateInfo multisampleStateInfo;
