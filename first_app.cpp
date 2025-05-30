@@ -2,6 +2,7 @@
 #include "lve_pipeline.hpp"
 #include <vulkan/vulkan_core.h>
 #include <stdexcept>
+#include <iostream>
 
 namespace lve {
 
@@ -39,9 +40,12 @@ void FirstApp::createPipelineLayout(){
      pipelineConfig.renderPass = lveSwapChain.getRenderPass();
      pipelineConfig.pipelineLayout = pipelineLayout;
      lvePipeline = std::make_unique<LvePipeline>(lveDevice, "shaders/simple_shader.vert.spv", "shaders/simple_shader.frag.spv", pipelineConfig);
+      std::cout<<"Fixes"<<std::endl;
  }
 
  void FirstApp::createCommandBuffers(){};
  void FirstApp::drawFrame(){};
+
+
 
 }
