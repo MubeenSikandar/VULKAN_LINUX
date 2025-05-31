@@ -1,0 +1,98 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-std=c++17",
+      "-O2",
+      "-I/opt/homebrew/include",
+      "-I/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include",
+      "-o",
+      "VULKAN",
+      "first_app.cpp"
+    ],
+    "directory": "/Users/mubeensikandar/Documents/VULKAN_LINUX",
+    "file": "/Users/mubeensikandar/Documents/VULKAN_LINUX/first_app.cpp",
+    "output": "/Users/mubeensikandar/Documents/VULKAN_LINUX/VULKAN"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-std=c++17",
+      "-O2",
+      "-I/opt/homebrew/include",
+      "-I/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include",
+      "-o",
+      "VULKAN",
+      "lve_device.cpp"
+    ],
+    "directory": "/Users/mubeensikandar/Documents/VULKAN_LINUX",
+    "file": "/Users/mubeensikandar/Documents/VULKAN_LINUX/lve_device.cpp",
+    "output": "/Users/mubeensikandar/Documents/VULKAN_LINUX/VULKAN"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-std=c++17",
+      "-O2",
+      "-I/opt/homebrew/include",
+      "-I/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include",
+      "-o",
+      "VULKAN",
+      "lve_pipeline.cpp"
+    ],
+    "directory": "/Users/mubeensikandar/Documents/VULKAN_LINUX",
+    "file": "/Users/mubeensikandar/Documents/VULKAN_LINUX/lve_pipeline.cpp",
+    "output": "/Users/mubeensikandar/Documents/VULKAN_LINUX/VULKAN"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-std=c++17",
+      "-O2",
+      "-I/opt/homebrew/include",
+      "-I/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include",
+      "-o",
+      "VULKAN",
+      "lve_swapchain.cpp"
+    ],
+    "directory": "/Users/mubeensikandar/Documents/VULKAN_LINUX",
+    "file": "/Users/mubeensikandar/Documents/VULKAN_LINUX/lve_swapchain.cpp",
+    "output": "/Users/mubeensikandar/Documents/VULKAN_LINUX/VULKAN"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-std=c++17",
+      "-O2",
+      "-I/opt/homebrew/include",
+      "-I/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include",
+      "-o",
+      "VULKAN",
+      "lve_window.cpp"
+    ],
+    "directory": "/Users/mubeensikandar/Documents/VULKAN_LINUX",
+    "file": "/Users/mubeensikandar/Documents/VULKAN_LINUX/lve_window.cpp",
+    "output": "/Users/mubeensikandar/Documents/VULKAN_LINUX/VULKAN"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-c",
+      "-std=c++17",
+      "-O2",
+      "-I/opt/homebrew/include",
+      "-I/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include",
+      "-o",
+      "VULKAN",
+      "main.cpp"
+    ],
+    "directory": "/Users/mubeensikandar/Documents/VULKAN_LINUX",
+    "file": "/Users/mubeensikandar/Documents/VULKAN_LINUX/main.cpp",
+    "output": "/Users/mubeensikandar/Documents/VULKAN_LINUX/VULKAN"
+  }
+]
