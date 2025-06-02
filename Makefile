@@ -1,36 +1,36 @@
 CXX = clang++
 CFLAGS = -std=c++17 -O2
 
-# Manually specify Vulkan SDK path
 VULKAN_SDK_PATH = /Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS
-INCLUDES = -I/opt/homebrew/include -I$(VULKAN_SDK_PATH)/include
+INCLUDES = -Iinclude -I/opt/homebrew/include -I$(VULKAN_SDK_PATH)/include
 LDFLAGS = -L/opt/homebrew/lib -L$(VULKAN_SDK_PATH)/lib -lglfw -lvulkan
 GLSLC = $(VULKAN_SDK_PATH)/bin/glslc
 
-# create list of all spv files and set as dependency
+# Shader compilation
 vertSources = $(shell find ./shaders -type f -name "*.vert")
 vertObjFiles = $(patsubst %.vert, %.vert.spv, $(vertSources))
 fragSources = $(shell find ./shaders -type f -name "*.frag")
 fragObjFiles = $(patsubst %.frag, %.frag.spv, $(fragSources))
 
-SOURCES = $(wildcard *.cpp)
-OBJECTS = $(SOURCES:.cpp=.o)
+# Source files
+SOURCES = main.cpp $(wildcard src/*.cpp)
+OBJECTS = $(patsubst %.cpp, build/%.o, $(notdir $(SOURCES)))
 
-TARGET = VULKAN
-$(TARGET): $(vertObjFiles) $(fragObjFiles)
+TARGET = build/VULKAN
 
-$(TARGET): $(SOURCES)
+# Compile binary
+$(TARGET): $(SOURCES) $(vertObjFiles) $(fragObjFiles)
+	@mkdir -p build
 	$(CXX) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(SOURCES) $(LDFLAGS)
 
-# make shader targets
+# Shader rule
 %.spv: %
-	${GLSLC} $< -o $@
+	$(GLSLC) $< -o $@
 
-.PHONY: test clean
+.PHONY: clean test
 
 test: $(TARGET)
 	./$(TARGET)
 
 clean:
-	rm -f $(TARGET) *.o
-	rm -f *.spv
+	rm -f build/VULKAN *.spv
