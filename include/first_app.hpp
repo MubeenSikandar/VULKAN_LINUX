@@ -11,25 +11,25 @@
 
 namespace lve {
 class FirstApp {
-  public:
-    static constexpr int WIDTH = 800;
-    static constexpr int HEIGHT = 600;
+public:
+  static constexpr int WIDTH = 800;
+  static constexpr int HEIGHT = 600;
 
-    FirstApp();
-    ~FirstApp();
+  FirstApp();
+  ~FirstApp();
 
-    FirstApp(const FirstApp&) = delete;
-    FirstApp& operator=(const FirstApp&) = delete;
+  FirstApp(const FirstApp &) = delete;
+  FirstApp &operator=(const FirstApp &) = delete;
 
-    void run();
+  void run();
 
-  private:
-    void loadGameObjects();
-    void renderGameObjects(VkCommandBuffer commandBuffer);
+private:
+  void loadGameObjects();
+  void renderGameObjects(VkCommandBuffer commandBuffer);
 
-    LveWindow lveWindow{WIDTH, HEIGHT, "Vulkan Tutorial"};
-    LveDevice lveDevice{lveWindow};
-    LveRenderer lveRenderer{lveWindow, lveDevice};
-    std::vector<LveGameObject> gameObjects;
+  LveWindow lveWindow{WIDTH, HEIGHT, "Vulkan Tutorial"};
+  LveDevice lveDevice{lveWindow};
+  LveRenderer lveRenderer{lveWindow, lveDevice};
+  std::vector<LveGameObject> gameObjects;
 };
 } // namespace lve
