@@ -18,7 +18,7 @@ public:
   };
 
   void moveInPlaneXZ(GLFWwindow *window, float deltaTime,
-                     LveGameObject &gameObject);
+                     LveGameObject &gameObject) const;
 
   KeyMapping keys{};
   float movementSpeed{3.0f};

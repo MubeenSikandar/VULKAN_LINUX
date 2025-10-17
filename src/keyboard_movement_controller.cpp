@@ -6,7 +6,7 @@
 namespace lve {
 
 void KeyboardMovementController::moveInPlaneXZ(GLFWwindow *window, float dt,
-                                               LveGameObject &gameObject) {
+                                               LveGameObject &gameObject) const {
   glm::vec3 rotate{0};
   if (glfwGetKey(window, keys.lookRight) == GLFW_PRESS)
     rotate.y += 1.f;
@@ -30,7 +30,7 @@ void KeyboardMovementController::moveInPlaneXZ(GLFWwindow *window, float dt,
   float yaw = gameObject.transform.rotation.y;
   const glm::vec3 forwardDir{sin(yaw), 0.f, cos(yaw)};
   const glm::vec3 rightDir{forwardDir.z, 0.f, -forwardDir.x};
-  const glm::vec3 upDir{0.f, -1.f, 0.f};
+  constexpr glm::vec3 upDir{0.f, -1.f, 0.f};
 
   glm::vec3 moveDir{0.f};
   if (glfwGetKey(window, keys.moveForward) == GLFW_PRESS)

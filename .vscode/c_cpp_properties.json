@@ -1,16 +1,18 @@
 {
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "defines": [],
-            "cStandard": "c17",
-            "compilerPath": "/usr/bin/gcc",
-            "cppStandard": "c++26",
-            "configurationProvider": "ms-vscode.makefile-tools"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "Mac",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/opt/homebrew/include", // <- Add this
+        "/Users/mubeensikandar/VulkanSDK/1.4.313.0/macOS/include" // <- Vulkan SDK
+      ],
+      "defines": ["GLFW_INCLUDE_VULKAN"],
+      "cStandard": "c17",
+      "compilerPath": "/usr/bin/gcc",
+      "cppStandard": "c++26",
+      "configurationProvider": "ms-vscode.makefile-tools"
+    }
+  ],
+  "version": 4
 }
